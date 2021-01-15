@@ -1,0 +1,80 @@
+doctype html
+html(lang='en')
+head
+  title Ottawa Stock Exchange
+  link(rel='stylesheet' href='UserStyle.css')
+body(onclick = 'changeAdmin()')
+  header
+    h2#time
+    h1
+      b Ottawa Stock Exchange
+    .sideRight
+      button.button.buttonLog(onclick = "logout()") Logout
+    .dropdown
+      button.dropbtn(onclick='dropFunction()') Dropdown
+      #myDropdown.dropdown-content
+        input#myInput(type='text' placeholder='Search..' onkeyup='filterFunction()')
+        a#AXP(href='http://localhost:3000/stocks/AXP') AXP
+        a#AMGN(href='http://localhost:3000/stocks/AMGN') AMGN
+        a#AAPL(href='http://localhost:3000/stocks/AAPL') AAPL
+        a#BA(href='http://localhost:3000/stocks/BA') BA
+        a#CAT(href='http://localhost:3000/stocks/CAT') CAT
+        a#CSCO(href='http://localhost:3000/stocks/CSCO') CSCO
+        a#CVX(href='http://localhost:3000/stocks/CVX') CVX
+        a#GS(href='http://localhost:3000/stocks/GS') GS
+        a#HD(href='http://localhost:3000/stocks/HD') HD
+        a#HON(href='http://localhost:3000/stocks/HON') HON
+        a#IBM(href='http://localhost:3000/stocks/IBM') IBM
+        a#INTC(href='http://localhost:3000/stocks/INTC') INTC
+        a#JNJ(href='http://localhost:3000/stocks/JNJ') JNJ
+        a#KO(href='http://localhost:3000/stocks/KO') KO
+        a#JPM(href='http://localhost:3000/stocks/JPM') JPM
+        a#MCD(href='http://localhost:3000/stocks/MCD') MCD
+        a#MMM(href='http://localhost:3000/stocks/MMM') MMM
+  h1 Welcome To The Admin Page
+  button(onclick='toggleDay()') Toggle Always Open
+  div
+    p
+  div
+    p
+  div
+    label(for='openTime') Select Hour to Open Market
+    select#openHour(name='openHour')
+      option(value='01') 01
+      option(value='02') 02
+      option(value='03') 03
+      option(value='04') 04
+      option(value='05') 05
+      option(value='06') 06
+      option(value='07') 07
+      option(value='08') 08
+      option(value='09') 09
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12
+    select#timeofDay(name='timeofDay')
+      option(value='AM') AM
+      option(value='PM') PM
+    button(onclick='setOpen()') Set Open Time
+  div
+    p
+  div
+    label(for='closeTime') Select Hour to Close Market
+    select#closeHour(name='closeHour')
+      option(value='01') 01
+      option(value='02') 02
+      option(value='03') 03
+      option(value='04') 04
+      option(value='05') 05
+      option(value='06') 06
+      option(value='07') 07
+      option(value='08') 08
+      option(value='09') 09
+      option(value='10') 10
+      option(value='11') 11
+      option(value='12') 12
+    select#timeDayClose(name='timeDayClose')
+      option(value='AM') AM
+      option(value='PM') PM
+    button(onclick='setClose()') Set Close Time
+  script(src='adminCode.js')

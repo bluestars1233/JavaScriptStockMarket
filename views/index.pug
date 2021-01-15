@@ -1,0 +1,49 @@
+doctype html
+head
+  title Ottawa Stock Exchange
+  link(rel='stylesheet' type='text/css' href='/UserStyle.css')
+body(onload = "indexLoad()")
+  header
+    h2#time
+    button.button.buttonBack(onclick="location.replace('http://localhost:3000/')") Back to UserPage
+    h1
+      b Ottawa Stock Exchange
+    #mySidebar.sidebar
+      a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+      #events
+    #main
+      button.openbtn(onclick='openNav()') &#x2630; Your Subscriptions
+    div
+      p     
+    #alignment
+      .sideRight
+        button.button.buttonLog(onclick = "logout()") Logout
+      .dropdown
+        button.dropbtn(onclick='dropFunction()') Dropdown
+        #myDropdown.dropdown-content
+          input#myInput(type='text' placeholder='Search..' onkeyup='filterFunction()')
+          a#AXP(href='http://localhost:3000/stocks/AXP') AXP
+          a#AMGN(href='http://localhost:3000/stocks/AMGN') AMGN
+          a#AAPL(href='http://localhost:3000/stocks/AAPL') AAPL
+          a#BA(href='http://localhost:3000/stocks/BA') BA
+          a#CAT(href='http://localhost:3000/stocks/CAT') CAT
+          a#CSCO(href='http://localhost:3000/stocks/CSCO') CSCO
+          a#CVX(href='http://localhost:3000/stocks/CVX') CVX
+          a#GS(href='http://localhost:3000/stocks/GS') GS
+          a#HD(href='http://localhost:3000/stocks/HD') HD
+          a#HON(href='http://localhost:3000/stocks/HON') HON
+          a#IBM(href='http://localhost:3000/stocks/IBM') IBM
+          a#INTC(href='http://localhost:3000/stocks/INTC') INTC
+          a#JNJ(href='http://localhost:3000/stocks/JNJ') JNJ
+          a#KO(href='http://localhost:3000/stocks/KO') KO
+          a#JPM(href='http://localhost:3000/stocks/JPM') JPM
+          a#MCD(href='http://localhost:3000/stocks/MCD') MCD
+          a#MMM(href='http://localhost:3000/stocks/MMM') MMM
+  body#indexMain
+      h1
+          u List of All Stocks
+      each stock in stocks
+          a(href = stock.url) #{stock.prefix}
+          h2  current price is: $#{stock.price}    
+          br
+  script(src='stockCode.js')
