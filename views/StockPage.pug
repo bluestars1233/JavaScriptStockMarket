@@ -1,0 +1,100 @@
+doctype html
+html(lang='en')
+head
+  title Ottawa Stock Exchange
+  link(rel='stylesheet' type='text/css' href='/UserStyle.css')
+body(onload = 'indexLoad()')
+  header
+    h2#time
+    button.button.buttonBack(onclick="location.replace('http://localhost:3000/')") Back to UserPage
+    h1
+      b Ottawa Stock Exchange
+    #mySidebar.sidebar
+      a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+      #events
+    #main
+      button.openbtn(onclick='openNav()') &#x2630; Your Subscriptions
+    div
+      p 
+    #alignment
+      .sideRight
+        button.button.buttonLog(onclick = "logout()") Logout
+      .dropdown
+        button.dropbtn(onclick='dropFunction()') Dropdown
+        #myDropdown.dropdown-content
+          input#myInput(type='text' placeholder='Search..' onkeyup='filterFunction()')
+          a#AXP(href='http://localhost:3000/stocks/AXP') AXP
+          a#AMGN(href='http://localhost:3000/stocks/AMGN') AMGN
+          a#AAPL(href='http://localhost:3000/stocks/AAPL') AAPL
+          a#BA(href='http://localhost:3000/stocks/BA') BA
+          a#CAT(href='http://localhost:3000/stocks/CAT') CAT
+          a#CSCO(href='http://localhost:3000/stocks/CSCO') CSCO
+          a#CVX(href='http://localhost:3000/stocks/CVX') CVX
+          a#GS(href='http://localhost:3000/stocks/GS') GS
+          a#HD(href='http://localhost:3000/stocks/HD') HD
+          a#HON(href='http://localhost:3000/stocks/HON') HON
+          a#IBM(href='http://localhost:3000/stocks/IBM') IBM
+          a#INTC(href='http://localhost:3000/stocks/INTC') INTC
+          a#JNJ(href='http://localhost:3000/stocks/JNJ') JNJ
+          a#KO(href='http://localhost:3000/stocks/KO') KO
+          a#JPM(href='http://localhost:3000/stocks/JPM') JPM
+          a#MCD(href='http://localhost:3000/stocks/MCD') MCD
+          a#MMM(href='http://localhost:3000/stocks/MMM') MMM
+  #subSection
+    h1#stockTitle
+      b
+        u
+    h1#currentStock #{stock.prefix}
+    h1#currentPrice Current Price: $#{stock.price}
+    button(onclick="addWatchList('"+stock.prefix+"')") Add To WatchList
+    div
+      button(onclick="placeOrder('"+stock.prefix+"', '"+stock.id+"')") Place Stock Order 
+      p (1 Order Per Customer)
+  h2
+    u Selling And Asking Prices
+  table#innerTable(style='width: 70%')
+    tr
+      th Selling/Buying
+      th Price
+      th Number of Shares
+      th Buy / Sell
+    each item in stock.Selling
+      tr
+        th Selling
+        th #{item.pricing}
+        th #{item.amount}
+        th
+          button(type = "button" onclick = "purchase('" +item.uid+"', '"+stock.prefix+"')") Purchase
+        
+  h2 Stock History
+  table#innerTable(style ='width: 70%')
+    tr
+      th Date
+      th Highest Price
+      th Lowest Price
+      th Transactions
+    each history in hist
+      tr
+        th #{history.date}
+        th $#{history.highPrice}
+        th $#{history.lowPrice}
+        th #{history.transactions}
+  p  
+  p
+  h2 Transaction History 
+  table#innerTable(style = 'width : 70%')
+    tr
+      th Date
+      th Buyer
+      th Seller
+      th Price
+      th Amount Sold 
+    each trans in transact
+      each thing in trans.transactions
+        tr
+          th #{trans.date}
+          th #{thing.buyer}
+          th #{thing.seller}
+          th $#{thing.price}
+          th #{thing.amount}
+  script(src='stockCode.js').

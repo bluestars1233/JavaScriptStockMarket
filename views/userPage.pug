@@ -1,0 +1,98 @@
+doctype html
+head
+  title Ottawa Stock Exchange
+  link(rel='stylesheet' href='UserStyle.css')
+header
+  h2#time
+  h1
+    b Ottawa Stock Exchange
+  button#depositWithdraw(onclick='balanceEdit()') Deposit/Withdraw
+  div
+    h2#balance.sideRight
+  .sideRight
+    button.button.buttonLog Login
+  .dropdown
+    button.dropbtn(onclick='dropFunction()') Dropdown
+    #myDropdown.dropdown-content
+      input#myInput(type='text' placeholder='Search..' onkeyup='filterFunction()')
+      a#AXP(href='StocksPage.html' onclick='stockPage(this)') AXP
+      a#AMGN(href='StocksPage.html' onclick='stockPage(this)') AMGN
+      a#AAPL(href='StocksPage.html' onclick='stockPage(this)') AAPL
+      a#BA(href='StocksPage.html' onclick='stockPage(this)') BA
+      a#CAT(href='StocksPage.html' onclick='stockPage(this)') CAT
+      a#CSCO(href='StocksPage.html' onclick='stockPage(this)') CSCO
+      a#CVX(href='StocksPage.html' onclick='stockPage(this)') CVX
+      a#GS(href='StocksPage.html' onclick='stockPage(this)') GS
+      a#HD(href='StocksPage.html' onclick='stockPage(this)') HD
+      a#HON(href='StocksPage.html' onclick='stockPage(this)') HON
+      a#IBM(href='StocksPage.html' onclick='stockPage(this)') IBM
+      a#INTC(href='StocksPage.html' onclick='stockPage(this)') INTC
+      a#JNJ(href='StocksPage.html' onclick='stockPage(this)') JNJ
+      a#KO(href='StocksPage.html' onclick='stockPage(this)') KO
+      a#JPM(href='StocksPage.html' onclick='stockPage(this)') JPM
+      a#MCD(href='StocksPage.html' onclick='stockPage(this)') MCD
+      a#MMM(href='StocksPage.html' onclick='stockPage(this)') MMM
+#notHeader
+  h2
+    u Stock Portfolio
+  table#portfolio1(style='width: 70%')
+    tr
+      th Stock
+      th Shares Owned
+      th Average Price Paid for Stock
+      th Current Value of Share
+      th Sell Stock
+  h2
+    u Orders
+  table#orders1(style='width: 70%')
+    tr
+      th Buying/Selling
+      th Stock
+      th Price Entered
+      th Shares orders for buying/selling
+      th Cancel Order
+  h2
+    u Watchlist
+  // <button onclick="newTable()">New Watchlist</button>
+  #watching
+    table#watchlist1(style='width: 70%')
+      tr
+        th Stock
+        th Current Price Per Stock
+        th Current Bid/Ask
+        th Number of Stock Trades
+        th Remove from Watchlist
+  h2
+    u Event Subscription
+  form
+    | Select What you would like to subscribe too:
+    select#subscription
+      option(value='AXP') AXP
+      option(value='AMGN') AMGN
+      option(value='AAPL') AAPL
+      option(value='BA') BA
+      option(value='CAT') CAT
+      option(value='CSCO') CSCO
+      option(value='CVX') CVX
+      option(value='GS') GS
+      option(value='HD') HD
+      option(value='HON') HON
+      option(value='IBM') IBM
+      option(value='INTC') INTC
+      option(value='JNJ') JNJ
+      option(value='KO') KO
+      option(value='JPM') JPM
+      option(value='MCD') MCD
+      option(value='MMM') MMM
+  button(type='button' onclick='subscribe()') Subscribe To Selection
+  table#subscribe1(style='width: 70%')
+    thead
+      th Stock
+      th Minimum Change Constraint
+      th Activate/Deactivate
+      th Remove Subscription
+div
+  h2 Recent Account History
+  p#accountList
+button(onclick='toAdmin()') Admin Page Login
+script(src='coding.js')

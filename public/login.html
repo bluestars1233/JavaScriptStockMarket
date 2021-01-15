@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Ottawa Stock Exchange</title>
+        <link rel="stylesheet" href="UserStyle.css">
+    </head>
+    <!-- 
+    Must make buttons that link to a function that will set an integer to the hour
+    If the person sets to PM, add 12 to the time since clock goes based off of 24 hour clock
+    must create a clock so person is able to identify the time
+    Find a way to disable all buttons from each html
+-->
+    <body style="background-color:darkorange">
+        <h1>STOCK MARKET LOGIN</h1>
+        <h2>Please login before entering</h2>
+        <div>
+            <h3>Username:</h3>
+            <input type = "text" id = "username" value = "Example">
+            <h3>Password:</h3>
+            <input type = "text" id = "password" value = "Example">
+        </div>
+        <p></p>
+        <input type="submit",id="loginButton", value="Login", onclick = 'logger()'>
+        <h2>Or Register Here</h2>
+        <div>
+            <h3>Username:</h3>
+            <input type = "text" id = "regUser" value = "example">
+            <h3>Password:</h3>
+            <input type = "text" id = "regPas" value = "example">
+            <h3>Confirm Password:</h3>
+            <input type = "text" id = "confirm" value = "example">
+        </div>
+        <p></p>
+        <input type = "submit" id = "registerButton" value = "Create", onclick = 'register()'>
+        <script src="login.js">
+        </script>
+    </body>
+</html>

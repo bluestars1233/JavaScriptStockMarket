@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Ottawa Stock Exchange</title>
+        <link rel="stylesheet" href="UserStyle.css">
+    </head>
+    
+    <body onload="userLoader()">
+        <header>
+            <h2 id = "time"></h2>
+            <h1><b>Ottawa Stock Exchange</b></h1>
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <div id = "events">
+                </div>
+            </div>
+            <div id="main">
+                <button class="openbtn" onclick="openNav()">☰ Event Subscriptions</button> 
+            <div>
+                <h2 id = "balance" class = "sideRight"></h2>
+            </div>
+            <div class = "sideRight">
+                <button class="button buttonLog" onclick = "logout()">Logout</button>
+                <button id = "depositWithdraw" onclick="balanceEdit()">Deposit/Withdraw</button>
+            </div>
+            <div class="dropdown">
+                <button onclick="dropFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                    <a id = "AXP" href='http://localhost:3000/stocks/AXP'>AXP</a>
+                        <a id = "AMGN" href='http://localhost:3000/stocks/AMGN'>AMGN</a>
+                        <a id = "AAPL" href='http://localhost:3000/stocks/AAPL'>AAPL</a>
+                        <a id = "BA" href='http://localhost:3000/stocks/BA'>BA</a>
+                        <a id = "CAT" href='http://localhost:3000/stocks/CAT'>CAT</a>
+                        <a id = "CSCO" href='http://localhost:3000/stocks/CSCO'>CSCO</a>
+                        <a id = "CVX" href='http://localhost:3000/stocks/CVX'>CVX</a>
+                        <a id = "GS" href='http://localhost:3000/stocks/GS'>GS</a>
+                        <a id = "HD" href='http://localhost:3000/stocks/HD'>HD</a>
+                        <a id = "HON" href='http://localhost:3000/stocks/HON'>HON</a>
+                        <a id = "IBM" href='http://localhost:3000/stocks/IBM'>IBM</a>
+                        <a id = "INTC" href='http://localhost:3000/stocks/INTC'>INTC</a>
+                        <a id = "JNJ" href='http://localhost:3000/stocks/JNJ'>JNJ</a>
+                        <a id = "KO" href='http://localhost:3000/stocks/KO'>KO</a>
+                        <a id = "JPM" href='http://localhost:3000/stocks/JPM'>JPM</a>
+                        <a id = "MCD" href='http://localhost:3000/stocks/MCD'>MCD</a>
+                        <a id = "MMM" href='http://localhost:3000/stocks/MMM'>MMM</a>
+                </div>
+            </div>
+        </header>
+        <div id="notHeader">
+        <h2><u>Stock Portfolio</u></h2>
+        <table style = "width: 70%" id = "portfolio1">
+            <tr>
+                <th>Stock</th>
+                <th>Shares Owned</th>
+                <th>Average Price Paid for Stock</th>
+                <th>Sell Stock</th>
+            </tr>
+        </table>
+        <h2><u>Orders</u></h2>
+        <table style = "width: 70%" id = "orders1">
+            <tr>
+                <th>Buying/Selling</th>
+                <th>Stock</th>
+                <th>Price Entered</th>
+                <th>Shares orders for buying/selling</th>
+                <th>Cancel Order</th>
+            </tr>
+        </table>
+        <h2><u>Watchlist</u></h2>
+        <!--<button onclick="newTable()">New Watchlist</button> -->
+        <div id = "watching">
+            <table style = "width: 70%" id = "watchlist1">
+                <tr>
+                    <th>Stock</th>
+                    <th>Current Price Per Stock</th>
+                    <th>Number of People Selling</th>
+                    <th>Remove from Watchlist</th>
+                </tr>
+            </table>
+        </div>
+        
+        <h2><u>Event Subscription</u></h2>
+        <form>
+            Select What you would like to subscribe too:
+            <select id = "subscription">
+                <option value = "AXP">AXP</option>
+                <option value = "AMGN">AMGN</option>
+                <option value = "AAPL">AAPL</option>
+                <option value = "BA">BA</option>
+                <option value = "CAT">CAT</option>
+                <option value = "CSCO">CSCO</option>
+                <option value = "CVX">CVX</option>
+                <option value = "GS">GS</option>
+                <option value = "HD">HD</option>
+                <option value = "HON">HON</option>
+                <option value = "IBM">IBM</option>
+                <option value = "INTC">INTC</option>
+                <option value = "JNJ">JNJ</option>
+                <option value = "KO">KO</option>
+                <option value = "JPM">JPM</option>
+                <option value = "MCD">MCD</option>
+                <option value = "MMM">MMM</option>
+            </select>
+        </form>
+        <form>
+            <select id = "over">
+                <option value = "higherThan">Higher Than</option>
+                <option value = "lessThan">Less Than</option>
+            </select>
+        </form>
+        <button type="button" onclick="subscribe()">Subscribe To Selection</button>
+        <table style = "width: 70%" id = "subscribe1">
+            <thead>
+                <th>Stock</th>
+                <th>Minimum Change Constraint</th>
+                <th>Activate/Deactivate</th>
+                <th>Higher/Less Than</th>
+                <th>Remove Subscription</th>
+            </thead>
+        </table>
+        </div>
+        <div>
+            <h2>Recent Account History</h2>
+            <p id = "accountList">
+                
+            </p>
+        </div>
+        <button onclick ="toAdmin()">Admin Page Login</button>
+        <script src="coding.js">
+        </script>
+    </body>
